@@ -8,11 +8,15 @@
       <a href="/">Solve another</a>
     </p>
     <h1>Suspected Solution for: {{ c }}</h1>
-    <ul>
-      {% for word in suspected %}
-      <li>{{ word|join(" ") }}</li>
-      {% endfor %}
-    </ul>
+    {% if suspected|length > 0 %}
+      <ul>
+        {% for word in suspected %}
+        <li>{{ word|join(" ") }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Nothing matched :( -- look below?</p>
+    {% endif %}
     <hr />
     <h1>All Solutions</h1>
     <ul>

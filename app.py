@@ -22,7 +22,7 @@ def s():
     return redirect(url_for("main"))
 
   solved, suspected = solve(c)
-  return render_template("solved.html", solved=solved, suspected=suspected)
+  return render_template("solved.html", solved=solved, suspected=suspected, c=c)
 
 
 if __name__ == "__main__":

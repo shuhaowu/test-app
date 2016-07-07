@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>OSRS Cipher Solver</title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <p>
+      <a href="/">Return To Main</a>
+    </p>
+    <h1>Suspected</h1>
+    <ul>
+      {% for word in suspected %}
+      <li>{{ word|join(" ") }}</li>
+      {% endfor %}
+    </ul>
+    <hr />
+    <h1>All Solutions</h1>
+    <ul>
+      {% for word in solved %}
+      <li>{{ word|join(" ") }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

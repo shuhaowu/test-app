@@ -1,21 +1,28 @@
-from flask import Flask
+import os
+
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 from ciphersolver import solve
 
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY")
 
 
 @app.route("/")
 def main():
-  return "Hello World!"
+  return render_template("index.html")
 
 
-@app.route("/words/<w>")
-def words(w):
-  solved, suspected = solve(w)
+@app.route("/solve")
+def s():
+  c = request.args.get("c", "")
+  if c == "":
+    flash("ERROR: You must provide some cipher text.")
+    return redirect(url_for("main"))
 
-  return str(suspected)
+  solved, suspected = solve(c)
+  return render_template("solved.html", solved=solved, suspected=suspected)
 
 
 if __name__ == "__main__":

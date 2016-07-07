@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>OSRS Cipher Solver</title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    {% for message in get_flashed_messages() %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    <form action="/solve" method="get">
+      Cipher: <input type="text" name="c"><br>
+      <input type="submit" value="Solve">
+    </form>
+  </body>
+</html>
